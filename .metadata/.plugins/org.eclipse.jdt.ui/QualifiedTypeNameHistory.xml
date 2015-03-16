@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="StdStats"/>
+<fullyQualifiedTypeName name="QuickFindUF"/>
+<fullyQualifiedTypeName name="WeightedQuickUnionUF"/>
+<fullyQualifiedTypeName name="org.omg.CosNaming.IstringHelper"/>
+<fullyQualifiedTypeName name="Deque.DequeIterator"/>
+<fullyQualifiedTypeName name="Deque"/>
+<fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
+<fullyQualifiedTypeName name="RandomizeQueue"/>
+<fullyQualifiedTypeName name="RandomizedQueue"/>
+<fullyQualifiedTypeName name="Quick"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Exchanger"/>
+<fullyQualifiedTypeName name="Point.BySlope"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.SliderUI"/>
+<fullyQualifiedTypeName name="Point"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="Board"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="In"/>
+<fullyQualifiedTypeName name="StdOut"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="MinPQ"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="SET"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.Iterable"/>
+<fullyQualifiedTypeName name="StdRandom"/>
+<fullyQualifiedTypeName name="RectHV"/>
+<fullyQualifiedTypeName name="StdDraw"/>
+<fullyQualifiedTypeName name="StdIn"/>
+<fullyQualifiedTypeName name="KdTree"/>
+<fullyQualifiedTypeName name="Queue"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="Point2D"/>
+</qualifiedTypeNameHistroy>
