@@ -1,0 +1,7 @@
+
+public class Bipartite {
+	private Graph G;
+	public Bipartite(Graph G) {
+		
+	}
+}

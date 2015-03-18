@@ -1,10 +1,10 @@
 
-
 public class Graph {
 	private int V;
 	private int E;
 	private Bag<Integer>[] adj;
 	
+	@SuppressWarnings("unchecked")
 	public Graph(int V) {
 		this.V = V;
 		this.E = 0;
@@ -24,9 +24,22 @@ public class Graph {
 		}
 	}
 	
+	public int V() {
+		return V;
+	}
+	
+	public int E() {
+		return E;
+	}
+	
+	public Iterable<Integer> adj(int v) {
+		return adj[v];
+	}
+	
 	public void addEdge(int v, int w) {
 		adj[v].add(w);
 		adj[w].add(v);
 		E++;
 	}
+	
 }

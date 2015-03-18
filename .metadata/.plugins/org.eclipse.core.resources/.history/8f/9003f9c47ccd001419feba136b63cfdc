@@ -1,0 +1,14 @@
+
+public class Bipartite {	
+	private Graph G;
+	private boolean[] marked;
+	
+	public Bipartite(Graph G) {
+		this.G = G;
+		marked = new boolean[G.V()];
+	}
+	
+	public void dfs(Graph G, int s) {
+		
+	}
+}
