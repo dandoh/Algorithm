@@ -5,7 +5,6 @@ public class Graph {
 	private int E;
 	private Bag<Integer>[] adj;
 	
-	@SuppressWarnings("unchecked")
 	public Graph(int V) {
 		this.V = V;
 		this.E = 0;

@@ -19,14 +19,12 @@
 <fullyQualifiedTypeName name="Board"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="In"/>
 <fullyQualifiedTypeName name="StdOut"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="MinPQ"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="SET"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.Iterable"/>
 <fullyQualifiedTypeName name="StdRandom"/>
 <fullyQualifiedTypeName name="RectHV"/>
@@ -36,4 +34,7 @@
 <fullyQualifiedTypeName name="Queue"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="Point2D"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Bag"/>
+<fullyQualifiedTypeName name="In"/>
 </qualifiedTypeNameHistroy>
