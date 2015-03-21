@@ -1,0 +1,31 @@
+
+public class DirectedCycle {
+	public boolean[] marked;
+	public int[] edgeTo;
+	public Stack<Integer> cycle;
+	
+	public DirectedCycle(Digraph G) {
+		marked = new boolean[G.V()];
+		edgeTo = new int[G.V()];
+		
+		for (int i = 0; i < G.V(); i++) 
+			dfs(G, i);
+	}
+	
+	private void dfs(Digraph G, int v) {
+		marked[v] = true;
+		
+	}
+	
+	public boolean hasCycle() {
+		return cycle != null;
+	}
+	
+	public Iterable<Integer> cycle() {
+		return cycle;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

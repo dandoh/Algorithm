@@ -1,0 +1,6 @@
+
+public class DirectedCycle {
+	public boolean[] marked;
+	public int[] edgeTo;
+	
+}

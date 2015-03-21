@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="Board"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="StdOut"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="MinPQ"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
@@ -35,6 +34,11 @@
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="Point2D"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="Bag"/>
 <fullyQualifiedTypeName name="In"/>
+<fullyQualifiedTypeName name="Bag"/>
+<fullyQualifiedTypeName name="BinaryDump"/>
+<fullyQualifiedTypeName name="Bipartite"/>
+<fullyQualifiedTypeName name="StdOut"/>
+<fullyQualifiedTypeName name="Stack"/>
+<fullyQualifiedTypeName name="Digraph"/>
 </qualifiedTypeNameHistroy>

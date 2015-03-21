@@ -1,0 +1,26 @@
+
+public class EulerTour {
+	private Graph G;
+	private int[] degree;
+	
+	public EulerTour(Graph G) {
+		this.G = G;
+		degree = new int[G.V()];
+		for (int i = 0; i < G.V(); i++) {
+			
+		}
+	}
+	
+	public boolean hasTour() {
+		
+	}
+	
+	private void dfs(Graph G, int v) {
+		
+	}
+	
+	public Iterable<Integer> tour() {
+		assert hasTour();
+		
+	}
+}

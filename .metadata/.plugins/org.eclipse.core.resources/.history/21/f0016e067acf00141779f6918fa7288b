@@ -1,0 +1,60 @@
+
+public class Exercise {
+	private static boolean[] marked;
+	private static int[] id;
+	private static int count;
+	public static void main(String[] args) {
+		SymbolGraph sg = new SymbolGraph(args[0], "/");
+		marked = new boolean[sg.G().V()];
+		id = new int[sg.G().V()];
+		count = 0;
+		
+//		bfs(sg, sg.index("A"));
+		for (int i = 0; i < sg.G().V(); i++) {
+			StdOut.print(sg.name(i) + ": ");
+			for (int j : sg.G().adj(i)) {
+				StdOut.print(sg.name(j) + " ");
+			}
+			StdOut.println();
+			if (!marked[i]) {
+				dfs(sg, i);
+				count++;
+			}
+		}
+		
+		for (int i = 0; i < id.length; i++) {
+			StdOut.print(id[i] + " ");
+		}
+	}
+	
+	public static void dfs(SymbolGraph sg, int v) {
+		marked[v] = true;
+		id[v] = count;
+		for (int w : sg.G().adj(v)) {
+			if (!marked[w]) {
+				dfs(sg, w);
+			}
+		}
+		
+	}
+	
+	public static void bfs(SymbolGraph sg, int v) {
+		Queue<Integer> queue = new Queue<Integer>();
+		queue.enqueue(v);
+		marked[v] = true;
+		
+		while (!queue.isEmpty()) {
+			int u = queue.dequeue();
+			StdOut.print(sg.name(u) + " ");
+			for (int i : sg.G().adj(u)) {
+				if (!marked[i]) {
+					marked[i] = true;
+					queue.enqueue(i);
+				}
+			}
+			
+		}
+	}
+	
+	
+}

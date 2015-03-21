@@ -1,0 +1,24 @@
+
+public class Exercise {
+	private static boolean[] marked;
+	
+	public static void main(String[] args) {
+		SymbolGraph sG = new SymbolGraph(args[0], " ");
+		marked = new boolean[sG.G().V()];
+		dfs(sG, sG.index("A"));
+	}
+	
+	public static void dfs(SymbolGraph sG, int v) {
+		marked[v] = true;
+		for (int w : sG.G().adj(v)) {
+			if (!marked[w]) {
+				dfs(sG, w);
+			}
+		}
+		
+		StdOut.print(sG.name(v) + " ");
+	}
+	
+	
+	
+}
