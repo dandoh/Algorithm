@@ -1,0 +1,16 @@
+
+public class Euler {
+	private boolean hasCycle;
+	
+	public Euler(Graph G) {
+		
+	}
+	
+	public boolean hasCycle() {
+		return hasCycle;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

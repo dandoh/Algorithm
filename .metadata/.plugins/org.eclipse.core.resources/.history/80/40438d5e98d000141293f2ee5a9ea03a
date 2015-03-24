@@ -1,0 +1,10 @@
+
+public class Euler {
+	public Euler(Graph G) {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

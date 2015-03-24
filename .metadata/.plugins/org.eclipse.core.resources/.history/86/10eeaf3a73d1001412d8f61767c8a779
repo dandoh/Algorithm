@@ -1,0 +1,9 @@
+
+public class Outcast {
+	private final WordNet wn;
+	public Outcast(WordNet wordnet) {
+		this.wn = wordnet;
+	}
+	public String outcast(String[] nouns) { return null; }
+	public static void main(String[] args) {}
+}

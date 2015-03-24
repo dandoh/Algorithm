@@ -1,0 +1,45 @@
+
+public class Work {
+	public static boolean[] marked;
+	public static Stack<Integer> topo;
+	public static void main(String[] args) {
+		SymbolDigraph sg = new SymbolDigraph(args[0], " ");
+		marked = new boolean[sg.G().V()];
+//		bfs(sg, 0);
+		topo = new Stack<Integer>();
+		for (int i = 0; i < sg.G().V(); i++) {
+			if (!marked[i]) {
+				dfs(sg, i);
+			}
+		}
+		while (!topo.isEmpty()) {
+			int i = topo.pop();
+			StdOut.print(sg.name(i) + " ");
+		}
+	}
+	
+	public static void dfs(SymbolDigraph sg, int v) {
+		marked[v] = true;
+		for (int w : sg.G().adj(v)) {
+			if (!marked[w])
+				dfs(sg, w);
+		}
+		topo.push(v);
+	}
+	
+	public static void bfs(SymbolDigraph sg, int v) {
+		Queue<Integer> queue = new Queue<Integer>();
+		marked[0] = true;
+		queue.enqueue(0);
+		while (!queue.isEmpty()) {
+			int u = queue.dequeue();
+			StdOut.print(sg.name(u) + " ");
+			for (int w : sg.G().adj(u)) {
+				if (!marked[w]) {
+					marked[w] = true;
+					queue.enqueue(w);
+				}
+			}
+		}
+	}
+}
