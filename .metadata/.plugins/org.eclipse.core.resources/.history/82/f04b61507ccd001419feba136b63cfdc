@@ -1,8 +1,0 @@
-
-public class Bipartite {	
-	public  boolean isBipartite(Graph G) {
-		
-	}
-	
-	public 
-}

@@ -1,0 +1,26 @@
+
+public class KruskalMST {
+	
+	private Queue<Edge> mst;
+	
+	public KruskalMST(WeightedGraph G) {
+		MinPQ<Edge> pq = new MinPQ<Edge>();
+		for (Edge e : G.edges()) {
+			pq.insert(e);
+		}
+		
+		WeightedQuickUnionUF uf = new WeightedQuickUnionUF(G.V());
+		mst = new Queue<Edge>();
+		
+		while (!pq.isEmpty() && mst.size() < V) {
+			Edge e = pq.delMin();
+			int v = e.either();
+			int w = e.other(v);
+			
+			if (!uf.connected(v, w)) {
+				uf.union(v, w);
+				mst.enqueue(e);
+			}
+		}
+	}
+}

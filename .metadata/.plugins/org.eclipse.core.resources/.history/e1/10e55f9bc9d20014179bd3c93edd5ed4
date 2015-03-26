@@ -1,0 +1,47 @@
+
+public class WeightedGraph {
+	private int V;
+	private Bag<Edge>[] adj;
+	private Bag<Edge> edges;
+	
+	@SuppressWarnings("unchecked")
+	public WeightedGraph(int V) {
+		this.V = V;
+		adj = (Bag<Edge>[]) new Bag[V];
+		
+		for (int i = 0; i < V; i++) {
+			adj[i] = new Bag<Edge>();
+		}
+		
+		edges = new Bag<Edge>();
+	}
+	
+	public WeightedGraph(In in) {
+		this(in.readInt());
+		
+		int E = in.readInt();
+		for (int i = 0; i < E; i++) {
+			String a = in.readString();
+			char temp = a.charAt(0);
+			int v = temp - 'A';
+			
+			String b = in.readString();
+			temp = b.charAt(0);
+			int w = temp - 'A';
+			
+			double weight = in.readDouble();
+			Edge e = new Edge(v, w, weight);
+			addEdge(v, e);
+			addEdge(w, e);
+			edges.add(e);
+		}
+	}
+	
+	public void addEdge(int v, Edge e) {
+		adj[v].add(e);
+	}
+	
+	public Iterable<Edge> edges() {
+		return e;
+	}
+}

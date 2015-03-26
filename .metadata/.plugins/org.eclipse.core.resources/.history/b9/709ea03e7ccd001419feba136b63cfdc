@@ -1,8 +1,0 @@
-
-public class Bipartite {	
-	private Graph G;
-	
-	public Bipartite(Graph G) {
-		this.G = G;
-	}
-}

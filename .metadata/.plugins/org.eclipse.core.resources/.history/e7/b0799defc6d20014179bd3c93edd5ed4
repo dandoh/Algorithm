@@ -1,0 +1,11 @@
+
+public class WeightedGraph {
+	private int V;
+	private Bag<Edge>[] adj;
+	
+	public WeightedGraph(int V) {
+		this.V = V;
+		adj = (Bag<Edge>[]) new Bag[V];
+		
+	}
+}

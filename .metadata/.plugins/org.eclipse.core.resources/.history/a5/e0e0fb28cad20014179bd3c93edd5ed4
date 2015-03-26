@@ -1,0 +1,21 @@
+
+public class KruskalMST {
+	
+	private boolean[] marked[];
+	private Queue<Edge> mst;
+	
+	public KruskalMST(WeightedGraph G) {
+		MinPQ<Edge> pq = new MinPQ<Edge>();
+		for (Edge e : G.edges()) {
+			pq.insert(e);
+		}
+		
+		WeightedQuickUnionUF uf = new WeightedQuickUnionUF(G.V());
+		mst = new Queue<Edge>();
+		
+		while (!pq.isEmpty()) {
+			Edge e = pq.delMin();
+			
+		}
+	}
+}

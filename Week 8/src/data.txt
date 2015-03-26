@@ -1,0 +1,15 @@
+8
+13
+B A     1
+    B C    31
+    B F     8
+    D C     1
+    D H    31
+    E A     6
+    E B    33
+    E F    49
+    F C    15
+    F G    12
+    G C     1
+    G D    16
+    G H    49
