@@ -1,0 +1,276 @@
+import java.awt.Color;
+
+public class SeamCarver {
+	private class RgbColor {
+		private int red, green, blue;
+		public RgbColor(int red, int green, int blue) {
+			this.red = red;
+			this.green = green;
+			this.blue = blue;
+		}
+	}
+
+	private RgbColor[][] color;
+	private int width, height;
+	private int END;
+	private int[] dx = {-1, 0, 1};
+	private int[] dy = {-1, 0, 1};
+
+	// create a seam carver object based on the given picture
+	public SeamCarver(Picture picture) {
+		if (picture == null)
+			throw new NullPointerException();
+		color = new RgbColor[picture.width()][picture.height()];
+		width = picture.width();
+		height = picture.height();
+		for (int i = 0; i < width; i++) { 
+			for (int j = 0; j < height; j++) {
+				int red = picture.get(i, j).getRed();
+				int green = picture.get(i, j).getGreen();
+				int blue = picture.get(i, j).getBlue();
+				color[i][j] = new RgbColor(red, green, blue);
+			}
+		}
+	}
+
+	// current picture
+	public Picture picture() {
+		Picture picture =  new Picture(width, height);
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				picture.set(i, j, new Color(color[i][j].red, color[i][j].green, color[i][j].blue));
+			}
+		}
+		
+		return picture;
+	}
+
+	// width of current picture
+	public int width() {
+		return width;
+	}
+
+	// height of current picture
+	public int height() {
+		return height;
+	}
+
+	// energy of pixel at column x and row y
+	public double energy(int x, int y) {
+		if (x < 0 || x > width() - 1 || y < 0 || y > height() - 1)
+			throw new IndexOutOfBoundsException();
+
+		if (x == 0 || x == width() - 1 || y == 0 || y == height() - 1)
+			return 195075; // 255^2 + 255^2 + 255^2
+
+		RgbColor left = color[x - 1][y];
+		RgbColor right = color[x + 1][y];
+		RgbColor up = color[x][y - 1];
+		RgbColor down = color[x][y + 1];
+
+		double rx = square(left.red - right.red);
+		double gx = square(left.green - right.green);
+		double bx = square(left.blue - right.blue);
+
+		double ry = square(up.red - down.red);
+		double gy = square(up.green - down.green);
+		double by = square(up.blue - down.blue);
+
+		return rx + gx + bx + ry + gy + by;
+	}
+
+	private int square(int x) {
+		return x * x;
+	}
+
+	// sequence of indices for horizontal seam
+	public int[] findHorizontalSeam() {
+
+		int[] horiSeam = bfs(false);
+
+		return horiSeam;
+	}
+
+	// sequence of indices for vertical seam
+	public int[] findVerticalSeam() {
+
+		int[] verSeam = bfs(true);
+
+		return verSeam;
+	}
+	
+	
+	private int[] bfs(boolean isVertical) {
+		END = width() * height();
+		if (isVertical) {
+			int[] res = new int[height()];
+			int[] parent = new int[width() * height() + 1];
+			double[] distance = new double[width() * height() + 1];
+			boolean[] onQueue = new boolean[width() * height() + 1];
+			
+			
+			for (int i = 0; i < width() * height() + 1; i++) {
+				distance[i] = Double.POSITIVE_INFINITY;
+				onQueue[i] = false;
+			}
+			
+			Queue<Integer> queue = new Queue<Integer>();
+			for (int i = 0; i < width(); i++) {
+				distance[i] = energy(x(i), y(i));
+				onQueue[i] = true;
+				queue.enqueue(i);
+				parent[i] = -1;
+			}
+			
+			while (!queue.isEmpty()) {
+				int p = queue.dequeue();
+				int x = x(p), y = y(p);
+				
+				if (y < height() - 1) {
+					for (int i = 0; i < 3; i++) {
+						int newX = x + dx[i];
+						int newY = y + 1;
+						if (newX < 0 || newX > width() - 1) 
+							continue;
+						int newP = newY * width() + newX;
+						if (distance[newP] > distance[p] + energy(newX, newY)) {
+							distance[newP] = distance[p] + energy(newX, newY);
+							parent[newP] = p;
+							if (!onQueue[newP]) 
+								queue.enqueue(newP);
+							onQueue[newP] = true;
+						}
+					}
+				} else {
+					if (distance[END] > distance[p]) {
+						distance[END] = distance[p];
+						parent[END] = p;
+					}
+				}
+			}
+			
+			int i = END;
+			while (parent[i] != -1) {
+				i = parent[i];
+				res[y(i)] = x(i);
+			}
+			
+			return res;
+		} else {
+			int[] res = new int[width()];
+			int[] parent = new int[width() * height() + 1];
+			double[] distance = new double[width() * height() + 1];
+			boolean[] onQueue = new boolean[width() * height() + 1];
+			
+			for (int i = 0; i < width() * height() + 1; i++) {
+				distance[i] = Double.POSITIVE_INFINITY;
+				onQueue[i] = false;
+			}
+			
+			Queue<Integer> queue = new Queue<Integer>();
+			for (int i = 0; i < height(); i++) {
+				distance[width() * i] = energy(0, 0);
+				parent[width() * i] = -1;
+				queue.enqueue(width() * i);
+				onQueue[i * width()] = true;
+			}
+			
+			while (!queue.isEmpty()) {
+				int p = queue.dequeue();
+				int x = x(p), y = y(p);
+				
+				if (x < width() - 1) {
+					for (int i = 0; i < 3; i++) {
+						int newX = x + 1;
+						int newY = y + dy[i];
+						
+						if (newY < 0 || newY > height() - 1) 
+							continue;
+						int newP = newY * width() + newX;
+						
+						if (distance[newP] > distance[p] + energy(newX, newY)) {
+							distance[newP] = distance[p] + energy(newX, newY);
+							parent[newP] = p;
+							if (!onQueue[newP])
+								queue.enqueue(newP);
+							onQueue[newP] = true;
+						}
+					}
+				} else {
+					if (distance[END] > distance[p]) {
+						distance[END] = distance[p];
+						parent[END] = p;
+					}
+				}
+			}
+			
+			int i = END;
+			while (parent[i] != -1) {
+				i = parent[i];
+				res[x(i)] = y(i);
+			}
+			
+			
+			return res;
+		}
+	}
+	
+	private int x(int id) { // column
+		return id % width();
+	}
+
+	private int y(int id) { // row
+		return id / width();
+	}
+	private void validate(int[] seam, boolean isVertical) {
+		int bound;
+		if (isVertical)
+			bound = height();
+		else
+			bound = width();
+		if (seam == null)
+			throw new NullPointerException();
+		if (seam.length != bound) 
+			throw new IllegalArgumentException();
+		for (int i = 0; i < seam.length - 1; i++) {
+			if (Math.abs(seam[i] - seam[i + 1]) > 1) 
+				throw new IllegalArgumentException();
+		}
+		if (width() <= 1 || height() <= 1) 
+			throw new IllegalArgumentException();
+
+			
+	}
+	// remove horizontal seam from current picture
+	public void removeHorizontalSeam(int[] seam) {
+		validate(seam, false);
+		RgbColor[][] c = new RgbColor[width][height - 1];
+		for (int i = 0; i < seam.length; i++) {
+			for (int j = 0; j < seam[i]; j++) {
+				c[i][j] = color[i][j];
+			}
+			
+			for (int j = seam[i]; j < height - 1; j++) {
+				c[i][j] = color[i][j + 1];
+			}
+		}
+		color = c;
+		height--;
+	}
+
+	// remove vertical seam from current picture
+	public void removeVerticalSeam(int[] seam) {
+		validate(seam, true);
+		RgbColor[][] c = new Color[width - 1][height];
+		for (int j = 0; j < seam.length; j++) {
+			for (int i = 0; i < seam[j]; i++) {
+				c[i][j] = color[i][j];
+			}
+			for (int i = seam[j]; i < width - 1; i++) {
+				c[i][j] = color[i + 1][j];
+			}
+		}
+		color = c;
+		width--;
+	}
+}

@@ -11,8 +11,10 @@ public class KdTree {
 	public boolean isEmpty() { return size == 0; }
 	public int size() { return size; }
 	public void insert(Point2D p) {
-		if (p == null) 
-			throw new NullPointerException();
+		if (p == null) {
+			throw new NullPointerException(); 
+		}
+		
 		root = insert(null, root, p, X, true);
 	}
 	

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="StdStats"/>
-<fullyQualifiedTypeName name="QuickFindUF"/>
 <fullyQualifiedTypeName name="org.omg.CosNaming.IstringHelper"/>
 <fullyQualifiedTypeName name="Deque.DequeIterator"/>
 <fullyQualifiedTypeName name="Deque"/>
@@ -43,20 +41,23 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="SAP"/>
 <fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
-<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
-<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="Graph"/>
 <fullyQualifiedTypeName name="Digraph"/>
 <fullyQualifiedTypeName name="EdgeWeightedGraph"/>
 <fullyQualifiedTypeName name="In"/>
-<fullyQualifiedTypeName name="WeightedGraph"/>
 <fullyQualifiedTypeName name="MinPQ"/>
 <fullyQualifiedTypeName name="java.lang.Iterable"/>
 <fullyQualifiedTypeName name="Edge"/>
 <fullyQualifiedTypeName name="Bag"/>
 <fullyQualifiedTypeName name="WeightedQuickUnionUF"/>
-<fullyQualifiedTypeName name="Queue"/>
 <fullyQualifiedTypeName name="KruskalMST"/>
+<fullyQualifiedTypeName name="WeightedGraph"/>
+<fullyQualifiedTypeName name="IndexMinPQ"/>
+<fullyQualifiedTypeName name="DirectedEdge"/>
+<fullyQualifiedTypeName name="Dijkstra"/>
 <fullyQualifiedTypeName name="StdOut"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="Queue"/>
 </qualifiedTypeNameHistroy>
