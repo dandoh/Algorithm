@@ -1,6 +1,0 @@
-
-public class KruskalMST {
-	public KruskalMST(WeightedGraph G) {
-		
-	}
-}

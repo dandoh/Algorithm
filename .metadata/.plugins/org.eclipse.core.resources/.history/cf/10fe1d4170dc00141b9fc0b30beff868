@@ -1,0 +1,90 @@
+import java.util.LinkedList;
+
+
+public class EulerGraph {
+	private int V;
+	private LinkedList<EulerEdge>[] adj; 
+	private Stack<Integer> cycle;
+	
+	public EulerGraph(EdgeWeightedGraph G){
+		this.V = G.V();
+		adj = (LinkedList<EulerEdge>[]) new LinkedList[G.V()];
+		for (int i = 0; i < V; i++) {
+			adj[i] = new LinkedList<EulerEdge>();
+		}
+		
+		for (int i = 0; i < V; i++) {
+			for (Edge e : G.adj(i)) {
+				int u = e.either();
+				int v = e.other(u);
+				double weight = e.weight();
+				adj[i].add(new EulerEdge(u, v, weight));
+			}
+		}
+		
+		cycle = new Stack<Integer>();
+		
+		if (hasCycle()) {
+			dfs(0);
+		}
+		
+	}
+	
+	private void dfs(int v) {
+		while (!adj[v].isEmpty()) {
+			EulerEdge e = adj[v].removeFirst();
+		}
+	}
+	
+	public boolean hasCycle() {
+		for (int i = 0; i < V; i++)	 {
+			if (adj[i].size() % 2 != 0) 
+				return false;
+		}
+		
+		return true;
+	}
+	
+	public Iterable<Integer> cycle() {
+		if (!hasCycle()) 
+			throw new UnsupportedOperationException("Do not have any euler cycle");
+		
+		return cycle;
+	}
+	
+	
+	
+	private class EulerEdge {
+		private int u, v;
+		private boolean deleted;
+		private double weight;
+		
+		public EulerEdge(int u, int v, double weight) {
+			this.u = u;
+			this.v = v;
+			this.weight = weight;
+			deleted = false;
+		}
+		
+		public int either() {
+			return u;
+		}
+		
+		public int other(int w) {
+			if (w == u)
+				return v;
+			else 
+				return u;
+		}
+		
+		public double weight() {
+			return weight;
+		}
+		
+		public boolean deleted() {
+			return deleted;
+		}
+		
+		
+	}
+}

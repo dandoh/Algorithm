@@ -1,0 +1,5 @@
+/.DS_Store
+/8puzzle.zip
+/Board.class
+/PuzzleChecker.class
+/Solver$Node.class

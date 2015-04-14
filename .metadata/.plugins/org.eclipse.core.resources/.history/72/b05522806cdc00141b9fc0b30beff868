@@ -1,0 +1,12 @@
+
+public class Euler {
+	public Euler(Graph G) {
+		
+	}
+	
+	public Iterable<Integer> circuit() {}
+	
+	private void dfs(Graph G) {
+		
+	}
+}

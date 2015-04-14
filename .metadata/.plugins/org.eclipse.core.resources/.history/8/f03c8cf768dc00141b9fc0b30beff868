@@ -1,0 +1,6 @@
+
+public class Euler {
+	public Euler(Graph G) {
+		
+	}
+}

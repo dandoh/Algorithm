@@ -1,9 +1,0 @@
-
-public class Dijkstra {
-	private int[] d;
-	
-	public Dijkstra(WeightedGraph G, int s) {
-		IndexMinPQ<Integer> pq = new IndexMinPQ<Integer>(G.V());
-		d = new int[G.V()];
-	}
-}

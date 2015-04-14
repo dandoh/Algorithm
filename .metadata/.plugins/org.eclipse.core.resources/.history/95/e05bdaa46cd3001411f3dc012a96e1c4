@@ -1,6 +1,0 @@
-
-public class Dijkstra {
-	public Dijkstra(WeightedGraph G, int s) {
-		
-	}
-}

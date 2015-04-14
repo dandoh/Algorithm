@@ -1,8 +1,0 @@
-
-public class Exe {
-	public static void main(String[] args) {
-		In in = new In(args[0]);
-		WeightedGraph wg = new WeightedGraph(in);
-		wg.print();
-	}
-}
